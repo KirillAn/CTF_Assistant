@@ -98,5 +98,11 @@ Manually compiled based on real-world penetration testing data.
 
 4️⃣ Binary exploitation & reverse engineering – binary analysis, bypassing protection mechanisms.
 
+Example:
+
+<pre>
+  <div id="header" align="center"> <img src=data/dataset_ex.png width="1000"/>
+  </div>
+</pre>
 
 
