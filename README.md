@@ -83,11 +83,23 @@ The agent integrates with a set of real-world tools:
 - **Hashcat** – for password hash cracking  
 - **CyberChef** – for encoding/decoding tasks
 
+  | Tool       | Purpose                          | Example Input                  |
+|------------|----------------------------------|--------------------------------|
+| DirSearch  | Web directory enumeration        | `Scan https://example.com`     |
+| Nmap       | Port scanning                    | `Scan 192.168.1.1 with nmap`   |
+| SQLmap     | SQLi testing                     | `Check https://x.com?id=1`     |
+| Hashcat    | MD5 hash cracking                | `Crack 5f4dcc3b5aa...`         |
+| CyberChef  | Encode/Decode (Base64 etc.)      | `base64 encode hello`          |
+| RAG        | Retrieve from internal JSON      | `What is hash 8f4d...?`        |
+
+
+
 #### 📊 Retrieval-Augmented Generation (RAG)  
 JSON-based data (e.g., hash information) is indexed using text embeddings. A Retriever module selects relevant fragments to assist the LLM in answering questions.
 
 #### 🔄 Reasoning Loop  
 The agent performs step-by-step reasoning, logging all intermediate thoughts, tool actions, and observations before producing a final answer. Tool selection is guided by a rule-based dispatcher.
+
 
 
 
