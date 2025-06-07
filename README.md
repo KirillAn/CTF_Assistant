@@ -31,7 +31,7 @@ ctf-assistant/
     ├── text_utils.py        # text formatting, extraction
     └── env_utils.py         # token and env parsing
 ```
-### 🧩 Agent Architecture
+## 🧩 Agent Architecture
 ```mermaid
 flowchart LR
     Start([Start])
