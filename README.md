@@ -81,7 +81,7 @@ The agent integrates with a set of real-world tools:
 - **Hashcat** – for password hash cracking  
 - **CyberChef** – for encoding/decoding tasks
 
-#### 🔁 Retrieval-Augmented Generation (RAG)  
+#### 📊 Retrieval-Augmented Generation (RAG)  
 JSON-based data (e.g., hash information) is indexed using text embeddings. A Retriever module selects relevant fragments to assist the LLM in answering questions.
 
 #### 🔄 Reasoning Loop  
