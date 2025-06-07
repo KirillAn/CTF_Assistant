@@ -31,6 +31,7 @@ ctf-assistant/
     ├── text_utils.py        # text formatting, extraction
     └── env_utils.py         # token and env parsing
 ```
+### 🧩 Agent Architecture
 ```mermaid
 flowchart LR
     Start([Start])
@@ -63,8 +64,29 @@ flowchart LR
     class Decision decision
 
 
-
 ```
+### 🔹 Core Components
+
+#### 🧠 LLM Engine  
+An open-source language model **OpenHermes-2.5-Mistral-7B** is used as the reasoning core, integrated via the HuggingFace Transformers and LangChain frameworks.
+
+#### 🧾 Graph-Based Memory  
+Retrieved documents and task-relevant embeddings are stored in a graph structure using **NetworkX**. This allows the agent to retrieve contextual information and reuse it in future steps.
+
+#### 🛠️ Embedded Toolset  
+The agent integrates with a set of real-world tools:
+- **DirSearch** – for directory enumeration  
+- **Nmap** – for port and service scanning  
+- **SQLmap** – for automated SQL injection testing  
+- **Hashcat** – for password hash cracking  
+- **CyberChef** – for encoding/decoding tasks
+
+#### 🔁 Retrieval-Augmented Generation (RAG)  
+JSON-based data (e.g., hash information) is indexed using text embeddings. A Retriever module selects relevant fragments to assist the LLM in answering questions.
+
+#### 🔄 Reasoning Loop  
+The agent performs step-by-step reasoning, logging all intermediate thoughts, tool actions, and observations before producing a final answer. Tool selection is guided by a rule-based dispatcher.
+
 ### 💾 Dataset
 Manually compiled based on real-world penetration testing data.
 
