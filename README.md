@@ -33,23 +33,15 @@ ctf-assistant/
 ```
 ```mermaid
 flowchart TD
-    %% Direction: Top-Down
+    documents["Source Documents (JSON)"]
+    createEmbeddings["Generate Embeddings"]
+    insertDB["Insert into Graph Database"]
+    question["User Question"]
+    LLM["LLM Agent"]
+    answer["Generate Final Answer"]
+    search["Search Relevant Context"]
+    retriever["Graph Retriever"]
 
-    %% Data pipeline
-    documents[Source Documents (JSON)]:::yellowBox
-    createEmbeddings[Generate Embeddings]:::blueBox
-    insertDB[Insert into Graph Database]:::orangeBox
-
-    %% User interaction
-    question[User Question]:::greenBox
-    LLM[LLM Agent]:::purpleBox
-    answer[Generate Final Answer]:::purpleBox
-
-    %% Retrieval
-    search[Search Relevant Context]:::grayBox
-    retriever[Graph Retriever]:::grayBox
-
-    %% Connections
     documents --> createEmbeddings
     createEmbeddings --> insertDB
     insertDB --> retriever
@@ -58,13 +50,20 @@ flowchart TD
     LLM --> search
     search --> retriever
 
-    %% Styles
-    classDef yellowBox fill:#fff3b3,color:#333,stroke:#ffd966,stroke-width:2px
-    classDef greenBox fill:#dafbe1,color:#333,stroke:#8dde98,stroke-width:2px
-    classDef blueBox fill:#d4efff,color:#333,stroke:#5dc8f4,stroke-width:2px
-    classDef purpleBox fill:#fce4ff,color:#333,stroke:#fcb0ff,stroke-width:2px
-    classDef orangeBox fill:#ffe5d1,color:#333,stroke:#ffa45b,stroke-width:2px
-    classDef grayBox fill:#f4f4f4,color:#333,stroke:#ccc,stroke-width:2px
+    classDef yellowBox fill:#fff3b3,stroke:#ffd966,stroke-width:2px
+    classDef greenBox fill:#dafbe1,stroke:#8dde98,stroke-width:2px
+    classDef blueBox fill:#d4efff,stroke:#5dc8f4,stroke-width:2px
+    classDef purpleBox fill:#fce4ff,stroke:#fcb0ff,stroke-width:2px
+    classDef orangeBox fill:#ffe5d1,stroke:#ffa45b,stroke-width:2px
+    classDef grayBox fill:#f4f4f4,stroke:#ccc,stroke-width:2px
+
+    class documents yellowBox
+    class createEmbeddings blueBox
+    class insertDB orangeBox
+    class question greenBox
+    class LLM,answer purpleBox
+    class search,retriever grayBox
+
 ```
 ### 💾 Dataset
 Manually compiled based on real-world penetration testing data.
