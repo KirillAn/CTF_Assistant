@@ -65,6 +65,8 @@ flowchart LR
 
 
 ```
+
+
 ### 🔹 Core Components
 
 #### 🧠 LLM Engine  
@@ -86,6 +88,8 @@ JSON-based data (e.g., hash information) is indexed using text embeddings. A Ret
 
 #### 🔄 Reasoning Loop  
 The agent performs step-by-step reasoning, logging all intermediate thoughts, tool actions, and observations before producing a final answer. Tool selection is guided by a rule-based dispatcher.
+
+
 
 ### 💾 Dataset
 Manually compiled based on real-world penetration testing data.
