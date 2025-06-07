@@ -32,37 +32,36 @@ ctf-assistant/
     └── env_utils.py         # token and env parsing
 ```
 ```mermaid
-flowchart TD
-    documents["Source Documents (JSON)"]
-    createEmbeddings["Generate Embeddings"]
-    insertDB["Insert into Graph Database"]
-    question["User Question"]
-    LLM["LLM Agent"]
-    answer["Generate Final Answer"]
-    search["Search Relevant Context"]
-    retriever["Graph Retriever"]
+flowchart LR
+    Start([Start])
+    Interact[User interacts with LLM]
+    Process[LLM processes user input]
+    Decision{Is a tool required?}
+    Invoke[Invoke Tool for specific task]
+    ToolResult[Tool generates result]
+    Receive[LLM receives result from Tool]
+    Respond[LLM provides response to User]
+    End([End])
 
-    documents --> createEmbeddings
-    createEmbeddings --> insertDB
-    insertDB --> retriever
-    question --> LLM
-    LLM --> answer
-    LLM --> search
-    search --> retriever
+    Start --> Interact
+    Interact --> Process
+    Process --> Decision
 
-    classDef yellowBox fill:#fff3b3,stroke:#ffd966,stroke-width:2px
-    classDef greenBox fill:#dafbe1,stroke:#8dde98,stroke-width:2px
-    classDef blueBox fill:#d4efff,stroke:#5dc8f4,stroke-width:2px
-    classDef purpleBox fill:#fce4ff,stroke:#fcb0ff,stroke-width:2px
-    classDef orangeBox fill:#ffe5d1,stroke:#ffa45b,stroke-width:2px
-    classDef grayBox fill:#f4f4f4,stroke:#ccc,stroke-width:2px
+    Decision -- Yes --> Invoke
+    Invoke --> ToolResult --> Receive --> Respond --> End
 
-    class documents yellowBox
-    class createEmbeddings blueBox
-    class insertDB orangeBox
-    class question greenBox
-    class LLM,answer purpleBox
-    class search,retriever grayBox
+    Decision -- No --> Respond
+
+    %% Style definitions
+    classDef oval fill:#f3e8ff,stroke:#d8b4fe,stroke-width:2px
+    classDef block fill:#ffe4f0,stroke:#ffb3c6,stroke-width:2px
+    classDef decision fill:#e0f2ff,stroke:#90cdf4,stroke-width:2px
+
+    %% Apply styles
+    class Start,End oval
+    class Interact,Process,Invoke,ToolResult,Receive,Respond block
+    class Decision decision
+
 
 ```
 ### 💾 Dataset
