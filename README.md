@@ -52,15 +52,16 @@ flowchart LR
 
     Decision -- No --> Respond
 
-    %% Style definitions
-    classDef oval fill:#f3e8ff,stroke:#d8b4fe,stroke-width:2px
-    classDef block fill:#ffe4f0,stroke:#ffb3c6,stroke-width:2px
-    classDef decision fill:#e0f2ff,stroke:#90cdf4,stroke-width:2px
+    %% Style definitions with black text
+    classDef oval fill:#f3e8ff,stroke:#d8b4fe,stroke-width:2px,color:#000
+    classDef block fill:#ffe4f0,stroke:#ffb3c6,stroke-width:2px,color:#000
+    classDef decision fill:#e0f2ff,stroke:#90cdf4,stroke-width:2px,color:#000
 
     %% Apply styles
     class Start,End oval
     class Interact,Process,Invoke,ToolResult,Receive,Respond block
     class Decision decision
+
 
 
 ```
